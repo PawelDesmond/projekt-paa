@@ -31,7 +31,7 @@ app.use(async (ctx, next) => {
   const ms = new Date() - start
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
-
+require('./store').init()
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
@@ -42,5 +42,5 @@ app.on('error', (err, ctx) => {
 });
 
 module.exports = app
-require('./store').init()
+
 
